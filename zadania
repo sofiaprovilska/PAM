@@ -68,3 +68,8 @@ List<Integer> wynik = new ArrayList<>();
             wynik.add(liczba);
         }
     }
+Set<Integer> unique = new LinkedHashSet<>(liczby);
+    List<Integer> end = new ArrayList<>(unique);
+    System.out.println("Lista bez duplikatów: " + end);
+
+7. Napisz program zliczający, ile razy każda liczba występuje w liście, i wypisujący wynik za pomocą HashMap.
