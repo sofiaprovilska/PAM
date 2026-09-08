@@ -7,3 +7,5 @@ Scanner wejscie = new Scanner(System.in);
     }
     System.out.println("Suma:" + liczby.stream().mapToInt(Integer::intValue).sum());
     System.out.println("Średnia:" + liczby.stream().mapToInt(Integer::intValue).average().orElse(0));
+
+2. Napisz program usuwający z ArrayList wszystkie elementy o wartości podanej przez użytkownika.
