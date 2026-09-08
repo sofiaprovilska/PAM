@@ -61,3 +61,10 @@ for(int i =0; i<=liczby.size() /2; i++){
     }
 
 6. Napisz program usuwający duplikaty z listy liczb, zachowując kolejność pierwszego wystąpienia.
+List<Integer> wynik = new ArrayList<>();
+
+    for (int liczba : liczby) {
+        if (!wynik.contains(liczba)) {
+            wynik.add(liczba);
+        }
+    }
