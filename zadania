@@ -1,1 +1,9 @@
-
+1. Napisz program, który wczytuje n liczb całkowitych i przechowuje je w ArrayList, a następnie wypisuje ich sumę i średnią.
+Scanner wejscie = new Scanner(System.in);
+    List<Integer> liczby = new ArrayList<>();
+    for (int i = 1; i <= 7; i++) {
+        int liczba = wejscie.nextInt();
+        liczby.add(liczba);
+    }
+    System.out.println("Suma:" + liczby.stream().mapToInt(Integer::intValue).sum());
+    System.out.println("Średnia:" + liczby.stream().mapToInt(Integer::intValue).average().orElse(0));
