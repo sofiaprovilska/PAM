@@ -9,3 +9,31 @@ Scanner wejscie = new Scanner(System.in);
     System.out.println("Średnia:" + liczby.stream().mapToInt(Integer::intValue).average().orElse(0));
 
 2. Napisz program usuwający z ArrayList wszystkie elementy o wartości podanej przez użytkownika.
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Random;
+
+void main() {
+    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+    // to see how IntelliJ IDEA suggests fixing it.
+    IO.println(String.format("Hello and welcome!"));
+    Scanner wejscie = new Scanner(System.in);
+    Random generetor = new Random();
+    List<Integer> liczby = new ArrayList<>();
+    for (int i = 1; i <= 7; i++) {
+        int liczba = generetor.nextInt(50)+1;
+        liczby.add(liczba);
+    }
+    System.out.println("Suma:" + liczby.stream().mapToInt(Integer::intValue).sum());
+    System.out.println("Średnia:" + liczby.stream().mapToInt(Integer::intValue).average().orElse(0));
+
+    System.out.print("Podal liczbę którą chcesz usunąć: ");
+    int deleteN = wejscie.nextInt();
+        while(liczby.contains(deleteN)){
+            liczby.remove(Integer.valueOf(deleteN));
+        }
+
+    System.out.println("Lista po usunuięciu:" + liczby);
+
+}
