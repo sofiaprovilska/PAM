@@ -44,3 +44,10 @@ int max = Collections.max(liczby);
 
     int min = Collections.min(liczby);
     System.out.println("Najmniejsza wartośc to:" + min);
+
+4. Napisz program sortujący listę liczb rosnąco i malejąco za pomocą klasy Collections.
+Collections.sort(liczby);
+    System.out.println(liczby);
+
+    Collections.sort(liczby, Collections.reverseOrder());
+    System.out.println(liczby);
