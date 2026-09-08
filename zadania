@@ -73,3 +73,20 @@ Set<Integer> unique = new LinkedHashSet<>(liczby);
     System.out.println("Lista bez duplikatów: " + end);
 
 7. Napisz program zliczający, ile razy każda liczba występuje w liście, i wypisujący wynik za pomocą HashMap.
+
+//użyc scanera array i randoma od 0 do 9 i 3 losowe liczby dodac do array
+void main() {
+    Scanner wejscie = new Scanner(System.in);
+    Random random = new Random();
+    List<Integer> list = new ArrayList<>();
+    int losowa = wejscie.nextInt();
+    losowa = losowa/2;
+    for (int i = 0; i < losowa; i++) {
+        int l = random.nextInt(10);
+        list.add(l);
+    }
+    System.out.println(list);
+
+
+    
+}
