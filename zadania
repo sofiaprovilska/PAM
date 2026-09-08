@@ -37,3 +37,10 @@ void main() {
     System.out.println("Lista po usunuięciu:" + liczby);
 
 }
+
+3. Napisz program znajdujący największą i najmniejszą wartość w liście liczb.
+int max = Collections.max(liczby);
+    System.out.println("Największa wartośc to:" + max);
+
+    int min = Collections.min(liczby);
+    System.out.println("Najmniejsza wartośc to:" + min);
