@@ -87,6 +87,18 @@ void main() {
     }
     System.out.println(list);
 
+HashMap<Integer, Integer> mapa = new HashMap<>();
 
-    
+for (int liczba : liczby) {
+    if (mapa.containsKey(liczba)) {
+        mapa.put(liczba, mapa.get(liczba) + 1);
+    } else {
+        mapa.put(liczba, 1);
+    }
 }
+
+System.out.println(mapa);
+}
+
+8. Napisz program tworzący HashSet z podanej listy słów i wypisujący tylko unikalne wyrazy.
+
