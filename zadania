@@ -101,4 +101,114 @@ System.out.println(mapa);
 }
 
 8. Napisz program tworzący HashSet z podanej listy słów i wypisujący tylko unikalne wyrazy.
+Random random = new Random();
 
+String[] slowa = {"kot", "pies", "dom", "auto", "las"};
+
+List<String> lista = new ArrayList<>();
+
+for (int i = 0; i < 10; i++) {
+    int losowa = random.nextInt(slowa.length);
+    lista.add(slowa[losowa]);
+}
+
+System.out.println("Lista: " + lista);
+
+HashSet<String> unikalne = new HashSet<>(lista);
+
+System.out.println("Unikalne: " + unikalne);
+
+9. Napisz program sprawdzający, czy dwa zbiory (HashSet) mają jakiekolwiek elementy wspólne.
+Random random = new Random();
+
+HashSet<Integer> zbior1 = new HashSet<>();
+HashSet<Integer> zbior2 = new HashSet<>();
+
+for (int i = 0; i < 10; i++) {
+    zbior1.add(random.nextInt(10));
+}
+
+for (int i = 0; i < 10; i++) {
+    zbior2.add(random.nextInt(10));
+}
+
+System.out.println("Zbiór 1: " + zbior1);
+System.out.println("Zbiór 2: " + zbior2);
+
+boolean wspolny = false;
+
+for (int liczba : zbior1) {
+    if (zbior2.contains(liczba)) {
+        wspolny = true;
+    }
+}
+
+if (wspolny) {
+    System.out.println("Zbiory mają element wspólny.");
+} else {
+    System.out.println("Brak wspólnych elementów.");
+}
+
+10. Napisz program obliczający część wspólną (przecięcie) dwóch zbiorów liczb.
+Random random = new Random();
+
+HashSet<Integer> zbior1 = new HashSet<>();
+HashSet<Integer> zbior2 = new HashSet<>();
+
+for (int i = 0; i < 10; i++) {
+    zbior1.add(random.nextInt(10));
+}
+
+for (int i = 0; i < 10; i++) {
+    zbior2.add(random.nextInt(10));
+}
+
+System.out.println("Zbiór 1: " + zbior1);
+System.out.println("Zbiór 2: " + zbior2);
+
+HashSet<Integer> wspolne = new HashSet<>(zbior1);
+
+wspolne.retainAll(zbior2);
+
+System.out.println("Część wspólna: " + wspolne);
+
+11. Napisz program obliczający sumę teoriomnogościową i różnicę dwóch zbiorów liczb.
+Set<Integer> suma = new HashSet<>(zbiorA);
+        suma.addAll(zbiorB);
+        System.out.println("\nSuma zbiorów (A U B): " + suma);
+
+        Set<Integer> roznicaAB = new HashSet<>(zbiorA);
+        roznicaAB.removeAll(zbiorB);
+        System.out.println("Różnica zbiorów (A - B): " + roznicaAB);
+
+12. Napisz program wczytujący imiona i wieki osób do HashMap<String, Integer> i wypisujący osobę o najwyższym wieku.
+Random random = new Random();
+
+HashMap<String, Integer> osoby = new HashMap<>();
+
+for (int i = 0; i < 5; i++) {
+    String imie = imiona[random.nextInt(imiona.length)];
+    int wiek = random.nextInt(50) + 1;
+
+    osoby.put(imie, wiek);
+}
+
+String najstarsza = "";
+int maxWiek = 0;
+for (String imie : osoby.keySet()) {
+    int wiek = osoby.get(imie);
+
+    if (wiek > maxWiek) {
+        maxWiek = wiek;
+        najstarsza = imie;
+    }
+}
+
+13. Napisz program zliczający częstość występowania każdego słowa w podanym tekście za pomocą HashMap.
+for (String slowo : lista) {
+    if (mapa.containsKey(slowo)) {
+        mapa.put(slowo, mapa.get(slowo) + 1);
+    } else {
+        mapa.put(slowo, 1);
+    }
+}
