@@ -3,3 +3,33 @@ Adaptee(obietk adoptowany) Uczen  ->  Osoba(adapter) -implementuje> IOsoba(targe
                                      Klient ^
 zależności, dziedziczenie, implementacja, korzysta
 https://www.geeksforgeeks.org/system-design/adapter-pattern/
+
+public class Czajnik {
+    private double temperatura;
+
+    public Czajnik(double temperatura) {
+        this.temperatura = temperatura;
+    }
+
+    public double pobierzTemperatureCelsjusza() {
+        return temperatura;
+    }
+}
+public interface ICzajnik {
+    double pobierzTemperatureFahrenheita();
+}
+public class CzajnikAdapter implements ICzajnik {
+    private Czajnik czajnik;
+
+    public CzajnikAdapter(Czajnik czajnik) {
+        this.czajnik = czajnik;
+    }
+
+    @Override
+    public double pobierzTemperatureFahrenheita() {
+        double celsius = czajnik.pobierzTemperatureCelsjusza();
+
+        return celsius * 9 / 5 + 32;
+    }
+}
+
