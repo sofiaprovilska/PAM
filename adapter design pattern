@@ -1,4 +1,4 @@
 Adapter - 
-Adaptee(obietk adoptowany) > Uczen   Osoba(adapter) -implementuje> IOsoba(target)
+Adaptee(obietk adoptowany) Uczen  ->  Osoba(adapter) -implementuje> IOsoba(target)
                                      Klient ^
 zależności, dziedziczenie, implementacja, korzysta
