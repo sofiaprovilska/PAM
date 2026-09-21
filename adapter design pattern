@@ -35,3 +35,31 @@ public interface ICzajnik{
 }
 
 
+
+void main() {
+
+    VGA vga = new VGA();
+    HDMI hdmi = new Adapter(vga);
+    hdmi.PodlaczHDMI();
+
+}
+public class VGA{
+    public void PodlaczVGA(){
+        System.out.println("Podłącz VGA");
+    }
+}
+class Adapter implements HDMI{
+    public VGA vga;
+    public Adapter(VGA vga){
+        this.vga = vga;
+    }
+    public void PodlaczHDMI(){
+        System.out.println("Podłącz HDMI");
+    }
+}
+public interface HDMI{
+    void PodlaczHDMI();
+}
+public interface DisplayPort{
+    void PodlaczDisplayPort();
+}
