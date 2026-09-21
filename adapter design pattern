@@ -4,32 +4,35 @@ Adaptee(obietk adoptowany) Uczen  ->  Osoba(adapter) -implementuje> IOsoba(targe
 zależności, dziedziczenie, implementacja, korzysta
 https://www.geeksforgeeks.org/system-design/adapter-pattern/
 
-public class Czajnik {
-    private double temperatura;
+void main() {
+  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+  // to see how IntelliJ IDEA suggests fixing it.
 
-    public Czajnik(double temperatura) {
-        this.temperatura = temperatura;
+
+}
+public class StaryCzajnik{
+    public double celsius;
+
+    public StaryCzajnik(double celsius){
+        this.celsius = celsius;
     }
-
-    public double pobierzTemperatureCelsjusza() {
-        return temperatura;
+    public double TemperaturaWCelsius(){
+        return celsius;
     }
 }
-public interface ICzajnik {
-    double pobierzTemperatureFahrenheita();
-}
-public class CzajnikAdapter implements ICzajnik {
-    private Czajnik czajnik;
 
-    public CzajnikAdapter(Czajnik czajnik) {
-        this.czajnik = czajnik;
+class CzajnikAdapter implements ICzajnik{
+    public StaryCzajnik staryCzajnik;
+    public double fahrenheit;
+    public CzajnikAdapter(StaryCzajnik staryCzajnik){
+        this.staryCzajnik = staryCzajnik;
     }
-
-    @Override
-    public double pobierzTemperatureFahrenheita() {
-        double celsius = czajnik.pobierzTemperatureCelsjusza();
-
-        return celsius * 9 / 5 + 32;
+    public double TemperaturaWFahrenheit(){
+        return staryCzajnik.TemperaturaWCelsius() * 1.8 +32;
     }
 }
+public interface ICzajnik{
+    double TemperaturaWFahrenheit();
+}
+
 
