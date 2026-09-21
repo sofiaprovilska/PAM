@@ -2,3 +2,4 @@ Adapter -
 Adaptee(obietk adoptowany) Uczen  ->  Osoba(adapter) -implementuje> IOsoba(target)
                                      Klient ^
 zależności, dziedziczenie, implementacja, korzysta
+https://www.geeksforgeeks.org/system-design/adapter-pattern/
