@@ -5,10 +5,9 @@ zależności, dziedziczenie, implementacja, korzysta
 https://www.geeksforgeeks.org/system-design/adapter-pattern/
 
 void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-
-
+    StaryCzajnik staryCzajnik = new StaryCzajnik(20.0);
+    ICzajnik czajnik = new CzajnikAdapter(staryCzajnik);
+    System.out.println(czajnik.TemperaturaWFahrenheit());
 }
 public class StaryCzajnik{
     public double celsius;
