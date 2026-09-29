@@ -1,0 +1,82 @@
+
+void main() {
+    Scanner input = new Scanner(System.in);
+
+    KontoBankowe konto = new KontoBankowe(1000);
+
+    Thread watek1 = new Thread(new Klient1(konto));
+    Thread watek2 = new Thread(new Klient2(konto));
+    Thread watek3 = new Thread(new Klient3(konto));
+
+    watek1.start();
+    watek2.start();
+}
+
+public class KontoBankowe{
+    public int Saldo;
+
+    public KontoBankowe(int saldo) {
+        Saldo = saldo;
+    }
+
+    public synchronized void Wplac(int kwota){
+        Saldo += kwota;
+    }
+
+    public synchronized void Wyplac(int kwota){
+        if(Saldo - kwota <= 0){
+            System.out.println("Brak środków biedaku");
+        }
+        else{
+            Saldo -= kwota;
+        }
+    }
+}
+
+public class Klient1 implements Runnable{
+    public KontoBankowe kontoBankowe;
+
+    public Klient1(KontoBankowe kontoBankowe) {
+        this.kontoBankowe = kontoBankowe;
+    }
+
+    @Override
+    public void run(){
+        Random rand = new Random();
+        for(int i = 0; i <= 100; i++){
+
+        }
+    }
+}
+
+public class Klient2 implements Runnable{
+    public KontoBankowe kontoBankowe;
+
+    public Klient2(KontoBankowe kontoBankowe) {
+        this.kontoBankowe = kontoBankowe;
+    }
+
+    @Override
+    public void run(){
+        Random rand = new Random();
+        for(int i = 0; i <= 100; i++){
+
+        }
+    }
+}
+
+public class Klient3 implements Runnable{
+    public KontoBankowe kontoBankowe;
+
+    public Klient3(KontoBankowe kontoBankowe) {
+        this.kontoBankowe = kontoBankowe;
+    }
+
+    @Override
+    public void run(){
+        Random rand = new Random();
+        for(int i = 0; i <= 100; i++){
+
+        }
+    }
+}
