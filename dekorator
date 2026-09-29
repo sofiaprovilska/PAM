@@ -1,1 +1,68 @@
+public interface Pizza{
+    void opis();
+}
+public class PizzaNormal implements Pizza {
 
+    @Override
+    public void opis() {
+        System.out.println("Pizza normalna");
+    }
+}
+public class PizzaNaGrubym implements Pizza {
+
+    @Override
+    public void opis() {
+        System.out.println("Pizza na grubym cieście");
+    }
+}
+public abstract class Dodatek implements Pizza{
+    protected Pizza pizza;
+    public Dodatek(Pizza pizza){
+        this.pizza = pizza;
+    }
+
+}
+public class Szynka extends Dodatek{
+    public Szynka(Pizza pizza) {
+        super(pizza);
+    }
+
+    @Override
+    public void opis() {
+        pizza.opis();
+        System.out.println(" z szynką");
+    }
+}
+public class Ananas extends Dodatek{
+    public Ananas(Pizza pizza) {
+        super(pizza);
+    }
+
+    @Override
+    public void opis() {
+        pizza.opis();
+        System.out.println(" z ananasem");
+    }
+}
+public class Oliwki extends Dodatek{
+    public Oliwki(Pizza pizza) {
+        super(pizza);
+    }
+
+    @Override
+    public void opis() {
+        pizza.opis();
+        System.out.println(" z oliwkami");
+    }
+}
+void main() {
+    Pizza p1 = new PizzaNormal();
+    p1.opis();
+
+    Pizza p2 = new Ananas(new PizzaNormal());
+    p2.opis();
+
+    Pizza p3 = new Oliwki(new Szynka(new Ananas(new PizzaNaGrubym())));
+    p3.opis();
+    
+    
