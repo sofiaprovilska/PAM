@@ -1,1 +1,64 @@
+import java.util.ArrayList;
+import java.util.List;
+
+abstract class SystemPlikow {
+    private String nazwa;
+
+    public SystemPlikow(String nazwa) {
+        this.nazwa = nazwa;
+    }
+
+    public abstract void Wyswietl();
+
+    public String getNazwa() {
+        return nazwa;
+    }
+}
+
+class Plik extends SystemPlikow {
+    public Plik(String nazwa) {
+        super(nazwa);
+    }
+
+    @Override
+    public void Wyswietl() {
+        System.out.println(getNazwa());
+    }
+}
+
+class Folder extends SystemPlikow {
+    private List<SystemPlikow> pliki;
+
+    public Folder(String nazwa) {
+        super(nazwa);
+        pliki = new ArrayList<>();
+    }
+
+    public void addPlik(SystemPlikow sp) {
+        pliki.add(sp);
+    }
+
+    @Override
+    public void Wyswietl() {
+        System.out.println("[" + getNazwa() + "]");
+        for (SystemPlikow item : pliki) {
+            item.Wyswietl();
+        }
+    }
+}
+
+
+void main() {
+    Folder f = new Folder("dyskC");
+
+    Plik plik = new Plik("min.jpg");
+    Plik plik1 = new Plik("min.txt");
+    Plik plik2 = new Plik("jjj.png");
+
+    f.addPlik(plik);
+    f.addPlik(plik1);
+    f.addPlik(plik2);
+
+    f.Wyswietl();
+}
 
