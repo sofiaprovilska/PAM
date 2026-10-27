@@ -1,0 +1,3 @@
+struktura
+?
+zachowanie
