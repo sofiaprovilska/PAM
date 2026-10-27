@@ -2,3 +2,65 @@ struktura
 ?
 zachowanie
 https://refactoring.guru/design-patterns/builder
+
+package builder;
+
+public class Osoba {
+    private String imie;
+    private String nazwisko;
+    private int wiek;
+    private int nrButa;
+    private int rozmiarCzapki;
+
+    private Osoba(OsobaBuilder osobaBuilder)
+    {
+        this.imie = osobaBuilder.imie;
+        this.nazwisko = osobaBuilder.nazwisko;
+        this.wiek = osobaBuilder.wiek;
+        this.nrButa = osobaBuilder.nrButa;
+        this.rozmiarCzapki = osobaBuilder.nrButa;
+    }
+    static class OsobaBuilder{
+        private String imie;
+        private String nazwisko;
+        private int wiek;
+        private int nrButa;
+        private int rozmiarCzapki;
+
+        OsobaBuilder setImie(String imie){
+            this.imie = imie;
+            return this;
+        }
+        OsobaBuilder setNazwisko(String nazwisko){
+            this.nazwisko = nazwisko;
+            return this;
+        }
+        OsobaBuilder setWiek(int wiek){
+            this.wiek = wiek;
+            return this;
+        }
+        OsobaBuilder setNrButa(int nrButa){
+            this.nrButa = nrButa;
+            return this;
+        }
+        OsobaBuilder setRozmiarCzapki(int rozmiarCzapki){
+            this.rozmiarCzapki = rozmiarCzapki;
+            return this;
+        }
+        Osoba Build(){
+            return new Osoba(this);
+        }
+
+        @Override
+        public String toString() {
+            return "OsobaBuilder{" +
+                    "imie='" + imie + '\'' +
+                    ", nazwisko='" + nazwisko + '\'' +
+                    ", wiek=" + wiek +
+                    ", nrButa=" + nrButa +
+                    ", rozmiarCzapki=" + rozmiarCzapki +
+                    '}';
+        }
+    }
+
+}
