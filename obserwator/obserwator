@@ -1,2 +1,8 @@
 obserwator -> część aktywna
 we wzorcu obserwator to obiekt obserwowany
+Observable + notifyAll()
+^
+|
+Observer
+Publisher
+Obserwator + update <- Obs1
