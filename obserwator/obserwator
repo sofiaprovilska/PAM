@@ -6,3 +6,81 @@ Observable + notifyAll()
 Observer
 Publisher
 Obserwator + update <- Obs1
+
+public interface Agencja {
+    void dodaj(Sluchacz s);
+    void usun(Sluchacz s);
+    void powiadom();
+}
+import java.util.ArrayList;
+import java.util.List;
+
+public class AgencjaPracy implements Agencja {
+    List<Sluchacz> sluchacze;
+
+    public AgencjaPracy() {
+        this.sluchacze = new ArrayList<Sluchacz>();
+    }
+
+    @Override
+    public void dodaj(Sluchacz s) {
+        sluchacze.add(s);
+    }
+
+    @Override
+    public void usun(Sluchacz s) {
+        sluchacze.remove(s);
+    }
+
+    @Override
+    public void powiadom() {
+        for (Sluchacz s : sluchacze) {
+            s.aktualizuj();
+        }
+    }
+}
+
+public interface Sluchacz {
+    void aktualizuj();
+}
+public class Kandydat implements Sluchacz {
+    private int licznik = 0;
+    private String nazwa;
+
+    public Kandydat(String nazwa) {
+        this.nazwa = nazwa;
+    }
+
+    @Override
+    public void aktualizuj() {
+        licznik++;
+    }
+
+    public int getLicznik() {
+        return licznik;
+    }
+
+    public String getNazwa() {
+        return nazwa;
+    }
+}
+
+
+public class Klient {
+    public static void main() {
+        AgencjaPracy AP = new AgencjaPracy();
+        Kandydat k1 = new Kandydat("Roman");
+        Kandydat k2 = new Kandydat("Krystyna");
+
+        AP.dodaj(k1);
+        AP.powiadom();
+        System.out.println(k1.getNazwa() + " " + k1.getLicznik());
+
+        AP.dodaj(k2);
+        AP.powiadom();
+        System.out.println(k1.getNazwa() + " " + k1.getLicznik());
+        System.out.println(k2.getNazwa() + " " + k2.getLicznik());
+
+
+    }
+}
